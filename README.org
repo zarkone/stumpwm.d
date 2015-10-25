@@ -1,0 +1,7 @@
+* My .stumpwm.d dir
+
+Configuration for *StumpWM*. There is a lot of mess here in code, a lot
+of commented forms but i /may need it somewhen/ and it /don't bother/ me
+to keep it *as-is*.
+
+[[https://raw.githubusercontent.com/zarkone/stumpwm.d/master/scrot.png]]
