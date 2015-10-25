@@ -1,0 +1,78 @@
+* A collection of StumpWM modules
+Documentation on modules can be found [[https://github.com/stumpwm/stumpwm/wiki/Modules][on our wiki]].  
+** How to write a module
+*** General guidelines
+- Create your own package and optionally import the stumpwm
+  package. Don't use the stumpwm package. If you need a symbol
+  exported, [[https://github.com/stumpwm/stumpwm/issues][open an issue]].
+- Use =asdf=.
+- Document exported symbols and commands.
+- Stay organized!  Put things in neat little directories.  A distro
+  might want to package your module.
+
+*** A pseudo-tutorial
+The path of least resistance is to use `quickproject` and its helper
+functions.  Specifically (get [[http://www.quicklisp.org/beta/][quicklisp]]):
+#+BEGIN_SRC lisp
+  (ql:quickload "quickproject")
+  (quickproject:make-project #p"~/path/to/new-module" :depends-on '(stumpwm) :name "swm-new-module")
+#+END_SRC
+Then in =~/path/to/new-module/= you will have:
+#+BEGIN_EXAMPLE
+  -rw-rw-r--  1 dave dave   68 Apr  6 19:38 package.lisp
+  -rw-rw-r--  1 dave dave   53 Mar 16  2014 README.txt
+  -rw-rw-r--  1 dave dave  271 Mar 16  2014 swm-new-module.asd
+  -rw-rw-r--  1 dave dave 1.8K Apr  6 17:51 swm-new-module.lisp
+#+END_EXAMPLE
+The files that are important for you are =package.lisp= and
+=swm-new-module.asd=.  They contain the =asdf= metadata that describes
+your project.
+
+An example =asd= file looks like:
+#+BEGIN_EXAMPLE
+(asdf:defsystem #:swm-new-module
+  :serial t
+  :description "Describe swm-new-module here"
+  :author "Guy Steele"
+  :license "GPLv3"
+  :depends-on (#:stumpwm)
+  :components ((:file "package")
+               (:file "swm-emacs"))) ; any other files you make go here
+#+END_EXAMPLE
+A =package.lisp= looks like:
+#+BEGIN_EXAMPLE
+(defpackage #:swm-new-module
+  (:use #:cl :stumpwm))
+#+END_EXAMPLE
+
+From here you can commence hacking.  When you're ready, advertise it
+to the world!
+
+[[http://www.xach.com/lisp/quickproject/][More docs here]].
+* Current Modules 
+(click for its respective README/docs)
+** Media 
+- [[./media/amixer/README.org][amixer]]
+- [[./media/aumix/README.org][aumix]]
+** Minor Modes
+- [[./minor-mode/mpd/README.org][mpd]]
+- [[./minor-mode/notifications/README.org][notifications]]
+** Modeline
+- [[./modeline/battery-portable/README.org][portable]]
+- [[./modeline/battery/README.org][battery]]
+- [[./modeline/cpu/README.org][cpu]]
+- [[./modeline/disk/README.org][disk]]
+- [[./modeline/maildir/README.org][maildir]]
+- [[./modeline/mem/README.org][mem]]
+- [[./modeline/net/README.org][net]]
+- [[./modeline/wifi/README.org][wifi]]
+** Utilities 
+- [[./util/numpad-layouts/README.org][numpad-layouts]]
+- [[./util/app-menu/README.org][menu]]
+- [[./util/logitech-g15-keysyms/README.org][keysyms]]
+- [[./util/passwd/README.org][passwd]]
+- [[./util/productivity/README.org][productivity]]
+- [[./util/stumptray/README.org][stumptray]]
+- [[./util/surfraw/README.org][surfraw]]
+- [[./util/undocumented/README.org][undocumented]]
+- [[./util/windowtags/README.org][windowtags]]
