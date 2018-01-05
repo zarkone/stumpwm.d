@@ -1,4 +1,6 @@
 (ql:quickload :swank)
+(ql:quickload :clx-truetype)
+
 (in-package :stumpwm)
 
 (defvar *confdir* "/home/zarkone/.stumpwm.d")
@@ -6,21 +8,26 @@
   (load (format nil "~A/~A" *confdir* filename)))
 
 (load-conf-file "keys.lisp")
+(load-conf-file "modem.lisp")
 (load-conf-file "modeline.lisp")
 (load-conf-file "windows.lisp")
 (load-conf-file "commands.lisp")
 (load-conf-file "groups.lisp")
 (load-conf-file "bar.lisp")
 
-(set-prefix-key (kbd "F20"))
-;; (set-prefix-key (kbd "C-q"))
+
+
+;; (set-prefix-key (kbd "F20"))
+(set-prefix-key (kbd "C-q"))
 ;; (set-prefix-key (kbd "Menu"))
 
 (load-module "ttf-fonts")
 ;; (xft:cache-fonts)
-(set-font (make-instance 'xft:font :family "Droid Sans Mono" :subfamily "Regular" :size 10)) 
 
-;; (set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 10))1
+;; (set-font (make-instance 'xft:font :family "Droid Sans Mono" :subfamily "Regular" :size 10))
+
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
+
 ;; (set-font (make-instance 'xft:font :family "Liberation Mono" :subfamily "Regular" :size 10))
 ;; (in-package :clx-truetype)
 ;; (loop for key being the hash-keys of (gethash "Ubuntu" *font-cache*)

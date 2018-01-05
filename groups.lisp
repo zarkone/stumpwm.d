@@ -1,5 +1,7 @@
 (in-package :stumpwm)
 
+(defvar *groups-key-bindings* '(1 2 3 4 5 6 7 8 9))
+
 (defmacro make-groups-bg (&rest names)
   (let ((ns (mapcar #'(lambda (n) (concatenate 'string "gnewbg " n)) names)))
     `(run-commands ,@ns)))
@@ -10,7 +12,7 @@
         (kbd (format nil "M-~A" (nth n *groups-key-bindings*)))
       (format nil "gselect ~A" (+ 1 n)))))
 
-(defvar *groups-key-bindings* '(1 2 3 "q" "w" "e"))
+
 
 (run-commands "grename code")
 (make-groups-bg "www" "term" "chat")

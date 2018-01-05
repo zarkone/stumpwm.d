@@ -30,7 +30,7 @@
 (setf *window-format* "%m%n%s%20t ")
 (setf *mode-line-timeout* 2)
 
-(setf *time-modeline-string* "^9 %e %b^n^B %l:%M ^b")
+(setf *time-modeline-string* "^9 • %e, %a^n^B %l:%M ^b")
 
 (defun get-date-modeline ()
   (stumpwm:run-shell-command
@@ -56,10 +56,10 @@
       (list "^B^3 %g ^n^b %W ^> "
             '(:eval (get-layout-modeline))
             "  "
-            "^3%M^n"
-            '(:eval (get-jabber-message-count))
+            ;; "^3%M^n"
+            ;; '(:eval (get-jabber-message-count))
             "^B^2^n^b%B "
-            ;; '(:eval (get-date-modeline))
+            '(:eval (get-date-modeline))
             ))
 
 (setf *mode-line-border-width* 0)
