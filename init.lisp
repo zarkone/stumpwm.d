@@ -16,7 +16,6 @@
 (load-conf-file "bar.lisp")
 
 
-
 ;; (set-prefix-key (kbd "F20"))
 (set-prefix-key (kbd "C-q"))
 ;; (set-prefix-key (kbd "Menu"))
@@ -26,7 +25,7 @@
 
 ;; (set-font (make-instance 'xft:font :family "Droid Sans Mono" :subfamily "Regular" :size 10))
 
-(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 11))
+(set-font (make-instance 'xft:font :family "DejaVu Sans Mono" :subfamily "Book" :size 12))
 
 ;; (set-font (make-instance 'xft:font :family "Liberation Mono" :subfamily "Regular" :size 10))
 ;; (in-package :clx-truetype)

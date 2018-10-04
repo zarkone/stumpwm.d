@@ -3,7 +3,7 @@
 (setf *window-border-style* :tight)
 (setf *maxsize-border-width* 2)
 (setf *normal-border-width* 2)
-(setf **transient-border-width** 2)
+;; (setf **transient-border-width** 2)
 (set-focus-color "#464646")
 
 ;; like kbdd, for per-window language layout.
