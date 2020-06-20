@@ -5,7 +5,7 @@
   "Command to start a terminal.")
 
 (defcommand exec-term (cmd) (:string)
- (run-commands (format nil "exec ~A -e ~A" *terminal* cmd)))
+ (run-commands (format nil "exec ~A -x ~A" *terminal* cmd)))
 
 (defcommand void-cmd () () nil)
 
@@ -13,6 +13,9 @@
   (format nil "exec ~A" *terminal*))
 
 (define-key *root-map* (kbd "a") "sh-time")
+
+(define-key *root-map* (kbd "y") "exec ~/big-monitor.sh")
+(define-key *root-map* (kbd "Y") "exec xrandr --auto")
 
 (define-key *root-map* (kbd "B") "mode-line")
 (define-key *root-map* (kbd "b") "banish")
@@ -34,6 +37,7 @@
     (define-key c (kbd "C") "exec gnome-control-center")
     (define-key c (kbd "e") "exec emacsclient -ca \"\"")
     (define-key c (kbd "g") "exec-term ncmpcpp")
+    (define-key c (kbd "t") "exec-term \"tmux new-session -A -s scratch\"")
     (define-key c (kbd "z") "exec-term htop")
     (define-key c (kbd "a") "exec-term mc")
     (define-key c (kbd "A") "exec-term ranger")
@@ -41,6 +45,7 @@
     (define-key c (kbd "p") "exec pavucontrol")
     (define-key c (kbd "m") "exec emacsclient -c -e '(unread-mail)'")
     (define-key c (kbd "y") "exec-term wicd-curses")
+    (define-key c (kbd "f") "exec nmcli con up wavespace_X_team")
     (define-key c (kbd "r") "exec redshift")
     (define-key c (kbd "l") "exec slock")
     (define-key c (kbd "R") "exec killall redshift")

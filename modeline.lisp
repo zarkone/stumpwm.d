@@ -8,6 +8,8 @@
 ;; "%m%n%s%50t"
 ;; "%a %b %e %k:%M:%S"
 
+(load-conf-file "kb-layout.lisp")
+
 (setf *bar-med-color* "^B^8")
 (setf *bar-hi-color* "^B^3")
 (setf *bar-crit-color* "^B^1")
@@ -22,7 +24,8 @@
        "cyan"
        "white"
        "GreenYellow"
-       "#009696"))
+        "#009696"))
+
 (update-color-map (current-screen))
 
 (setf *group-format* " %t ")
@@ -38,26 +41,28 @@
            *time-modeline-string*) t))
 
 (defun get-layout-modeline ()
-  (if (= 0 (get-current-layout *display*))
+  (if (= 0 (get-current-layout))
       "^3 en ^n"
       "^3^R ru ^r^n"))
 
 
 (defvar jabber-message-count "0")
+
 (setf jabber-message-count "0")
 
 (defun get-jabber-message-count ()
   (if (equal "0" jabber-message-count)
-    " • "
-    (format nil "^R ~A ^r" jabber-message-count)))
+      " • "
+      (format nil "^R ~A ^r" jabber-message-count)))
 
-(get-jabber-message-count)
+
 (setf *screen-mode-line-format*
       (list "^B^3 %g ^n^b %W ^> "
-            '(:eval (get-layout-modeline))
+            ;; '(:eval (get-layout-modeline))
             "  "
             ;; "^3%M^n"
             ;; '(:eval (get-jabber-message-count))
+            "%I "
             "^B^2^n^b%B "
             '(:eval (get-date-modeline))
             ))
@@ -67,4 +72,5 @@
 (setf *mode-line-foreground-color* "DeepSkyBlue")
 
 (if (not (head-mode-line (current-head)))
-    (toggle-mode-line (current-screen) (current-head)))
+    (toggle-mode-line (current-screen)
+                      (current-head)))

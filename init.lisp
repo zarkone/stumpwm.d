@@ -8,12 +8,14 @@
   (load (format nil "~A/~A" *confdir* filename)))
 
 (load-conf-file "keys.lisp")
-(load-conf-file "modem.lisp")
+;; (load-conf-file "modem.lisp")
 (load-conf-file "modeline.lisp")
 (load-conf-file "windows.lisp")
 (load-conf-file "commands.lisp")
 (load-conf-file "groups.lisp")
 (load-conf-file "bar.lisp")
+
+
 
 
 ;; (set-prefix-key (kbd "F20"))
