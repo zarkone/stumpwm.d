@@ -31,7 +31,7 @@
 (setf *group-format* " %t ")
 ;; (setf *window-format* "%m%50t ")
 (setf *window-format* "%m%n%s%20t ")
-(setf *mode-line-timeout* 2)
+(setf *mode-line-timeout* 1)
 
 (setf *time-modeline-string* "^9 • %e, %a^n^B %l:%M ^b")
 
